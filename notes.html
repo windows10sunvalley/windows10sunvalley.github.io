@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<title>Notes</title>
+<head>
+  <style>
+    /* Flex container to align items on the same line */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Segoe UI Variable Display";
+    }
+
+    /* Default Dark Mode Styles */
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    a {
+      color: #8ab4f8;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      font-family: "Segoe UI Variable Display";
+    }
+    h3, h4, h2, p, span {
+      font-family: "Segoe UI Variable Display";
+    }
+
+    /* Light Mode Styles */
+    body.light-mode {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    body.light-mode a {
+      color: #1a0dab;
+    }
+
+    /* Slider Switch Styles */
+    .switch-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 20px;
+      margin-top: 20px;
+    }
+
+    .switch-label {
+      margin-right: 10px;
+      font-family: "Segoe UI Variable Display";
+      font-size: 16px;
+      color: inherit;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  </style>
+  <link rel="icon" type="image/png" href="fav.png">
+</head>
+<body>
+
+<!-- Light/Dark Mode Slider at the Top -->
+<div class="switch-container">
+  <span class="switch-label">Dark Mode</span>
+  <label class="switch">
+    <input type="checkbox" id="theme-toggle">
+    <span class="slider"></span>
+  </label>
+</div>
+
+<div class="header-container">
+  <span>Build 21570.42</span>
+  <span>Initial release</span>
+</div>
+
+<img src="branding.png" width="687" height="108">
+
+<h1>Welcome to Windows 10 Sun Valley!</h1>
+
+<h3>Credits:</h3>
+<p>- LagLife (reverting UI from RevertSV playlist)</p>
+<p>- Tech4090 on Discord (helped revert and fix most bugs)</p>
+<p>- Tails on Discord (helped revert the start menu)</p>
+
+<h3>You can install some programs in the "Extras" shortcut on the desktop, and install with the installers I bundled.</h3>
+<h3>Bundled programs:</h3>
+<p>- 7-zip</p>
+<p>- Discord</p>
+<p>- Firefox</p>
+<p>- paint.net</p>
+<p>- Winaero Tweaker</p>
+<p>- Windows 7 Games for Windows 11, 10, and 8</p>
+<p>- Windows Live Essentials</p>
+
+<p>Credits go to the respective owners.</p>
+
+<h2>KNOWN BUGS:</h2>
+<p>- Running "sfc /scannow" will revert the Boot Logo and Branding to Windows 11</p>
+<p>- Creating a new user account breaks the icons.</p>
+<p>- For some reason, CustomizerGod does not work on this build.</p>
+<p>- The shell might crash during logon</p>
+<p>- Big Start Orb</p>
+<p>- Resizing UWP apps will crash the shell</p>
+<p>- Notifications might be opaque colored</p>
+<p>- Explorer might not start - it is because test mode is disabled when saving the image using DISM, even when it is already enabled in the original image.</p>
+
+<h4>New Builds will come soon so stay tuned! This is the initial release, so not everything will be perfect. You can suggest new features in my server:</h4>
+<p><a href="https://discord.com/invite/NEkfvzkbdA">https://discord.com/invite/NEkfvzkbdA</a></p>
+
+<p>Official Support Server: <a href="https://discord.gg/Dc4PMkR3J2">https://discord.gg/Dc4PMkR3J2</a></p>
+
+<h4>Subscribe to win64!</h4>
+<p><a href="https://www.youtube.com/@userwin64">https://www.youtube.com/@userwin64</a></p>
+
+<script>
+  // Check for saved theme in localStorage
+  const savedTheme = localStorage.getItem('theme');
+  const themeToggleCheckbox = document.getElementById('theme-toggle');
+
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggleCheckbox.checked = true;
+  }
+
+  // Toggle between light and dark mode
+  themeToggleCheckbox.addEventListener('change', () => {
+    document.body.classList.toggle('light-mode');
+    if (document.body.classList.contains('light-mode')) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+</script>
+
+</body>
+</html>
