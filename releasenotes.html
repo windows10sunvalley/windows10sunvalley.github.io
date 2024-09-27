@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download - Windows 10 Sun Valley</title>
+  <title>Release Notes - Windows 10 Sun Valley</title>
   <link rel="icon" type="image/png" href="imgs/fav.png">
   <style>
     body {
@@ -73,61 +73,30 @@
     .content {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start; /* Align content to the top */
+      align-items: flex-start; /* Left-align content */
       height: calc(100vh - 50px);
-      text-align: center;
+      padding: 50px 50px; /* Add some padding to the content */
       position: relative;
       z-index: 1;
-      margin-top: 50px;
-    }
-
-    .content img {
-      max-width: 13%;
-      height: auto;
-      margin-bottom: 20px;
     }
 
     .content h1 {
       color: #fff;
-      font-size: 2.5em;
-      margin: 10px 0;
+      font-size: 3em;
+      margin-bottom: 20px;
     }
 
-    .content p {
+    .content ul {
+      list-style-type: none;
       color: #ddd;
       font-size: 1.5em;
-      margin: 10px 0 30px;
+      margin: 0;
+      padding: 0;
     }
 
-    .content .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px; /* Add spacing between buttons */
-    }
-
-    .content .btn {
-      background-color: #ff5722;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .content .btn:hover {
-      background-color: #ff784e;
-    }
-
-    .content .btn-secondary {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .content .btn-secondary:hover {
-      background-color: #66bb6a;
+    .content ul li {
+      margin: 10px 0;
     }
 
   </style>
@@ -151,16 +120,13 @@
 
   <!-- Main Content -->
   <div class="content">
-    <img src="imgs/sunvalley_cover.png" alt="Sun Valley Cover">
-    <h1>Windows 10 21H2 Professional Edition</h1>
-    <div class="button-container">
-      <a href="https://archive.org/download/win10sunvalley_202409/Win10_21H2_English_x64_21570.318.iso">
-        <button class="btn">Download</button>
-      </a>
-      <a href="releasenotes.html">
-        <button class="btn btn-secondary">Release Notes</button>
-      </a>
-    </div>
+    <h1>Update 2: Changelog</h1>
+    <ul>
+      <li>Uses 21996 explorer (with UndockingDisabled)</li>
+      <li>Uses 22000.51 Start Menu (with Start_ShowClassicMode)</li>
+      <li>Uses 22000.318 DWM (makes UWP apps resizable again without crashing the shell)</li>
+      <li>Test mode only required for SearchApp(?)</li>
+    </ul>
   </div>
 
 </body>
